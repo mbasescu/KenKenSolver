@@ -1,6 +1,8 @@
 #include "KenKenBoard.h"
 
-namespace KenKenSolver
+#include <iostream>
+
+namespace KENKENSOLVER
 {
 
 KenKenBoard::KenKenBoard(int __size)
@@ -26,24 +28,28 @@ KenKenBoard::valid() const
     std::vector<int> observed_vals_row(_size, 0);
     for (int j = 0; j < _size; j++)
     {
-      // Check if the index in the i'th row and j'th col is already populated, if so the constraint is violated
-      if (observed_vals_col.at(_cells.at(i).at(j)-1) != 0)
+      // Only check filled cells for validity
+      if (_cells.at(i).at(j) != 0)
       {
-        return false;
-      }
-      else
-      {
-        observed_vals_col.at(_cells.at(i).at(j)-1) = 1;
-      }
+        // Check if the index in the i'th row and j'th col is already populated, if so the constraint is violated
+        if (observed_vals_col.at(_cells.at(i).at(j)-1) != 0)
+        {
+          return false;
+        }
+        else
+        {
+          observed_vals_col.at(_cells.at(i).at(j)-1) = 1;
+        }
 
-      // Same check but for the j'th row and i'th column
-      if (observed_vals_row.at(_cells.at(j).at(i)-1) != 0)
-      {
-        return false;
-      }
-      else
-      {
-        observed_vals_row.at(_cells.at(j).at(i)-1) = 1;
+        // Same check but for the j'th row and i'th column
+        if (observed_vals_row.at(_cells.at(j).at(i)-1) != 0)
+        {
+          return false;
+        }
+        else
+        {
+          observed_vals_row.at(_cells.at(j).at(i)-1) = 1;
+        }
       }
     }
   }
@@ -60,4 +66,4 @@ KenKenBoard::valid() const
   return true;
 }
 
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER

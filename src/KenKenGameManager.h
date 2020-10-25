@@ -1,9 +1,9 @@
-#ifndef KENKENGAMEMANAGER_H
-#define KENKENGAMEMANAGER_H
+#ifndef SRC_KENKENGAMEMANAGER_H
+#define SRC_KENKENGAMEMANAGER_H
 
 #include "KenKenBoard.h"
 
-namespace KenKenSolver
+namespace KENKENSOLVER
 {
 
 class KenKenGameManager
@@ -19,6 +19,6 @@ class KenKenGameManager
   void display();
 };
 
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER
 
 #endif

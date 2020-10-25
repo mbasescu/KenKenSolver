@@ -1,12 +1,21 @@
 #include "BoxConstraint.h"
 #include "KenKenBoard.h"
 
-namespace KenKenSolver
+namespace KENKENSOLVER
 {
 
 bool
 BoxConstraint::passes(const KenKenBoard& board) const
 {
+  // First loop through and return true if the cells are not completely filled in
+  for (int i = 0; i < n_cells; i++)
+  {
+    if (board.at(cells.at(i)) == 0)
+    {
+      return true;
+    }
+  }
+
   int res = board.at(cells.at(0));
   // Apply constraint operator to each cell to obtain the net result
   for (int i = 1; i < n_cells; i++)
@@ -41,4 +50,4 @@ BoxConstraint::applyOp(int val1, int val2) const
   return ret_val;
 }
 
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER

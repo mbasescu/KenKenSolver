@@ -1,10 +1,10 @@
-#ifndef BOXCONSTRAINT_H
-#define BOXCONSTRAINT_H
+#ifndef SRC_BOXCONSTRAINT_H
+#define SRC_BOXCONSTRAINT_H
 
 #include <utility>
 #include <vector>
 
-namespace KenKenSolver
+namespace KENKENSOLVER
 {
 
 enum class BoxOperator
@@ -39,6 +39,6 @@ class BoxConstraint
     applyOp(int val1, int val2) const;
 };
 
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER
 
 #endif

@@ -6,10 +6,12 @@
 #include "BoxConstraint.h"
 #include "KenKenBoard.h"
 #include "KenKenGameManager.h"
+#include "KenKenSolver.h"
 
-using KenKenSolver::BoxConstraint;
-using KenKenSolver::KenKenBoard;
-using KenKenSolver::KenKenGameManager;
+using KENKENSOLVER::BoxConstraint;
+using KENKENSOLVER::KenKenBoard;
+using KENKENSOLVER::KenKenGameManager;
+using KENKENSOLVER::KenKenSolver;
 
 int main(int argc, char *argv[])
 {
@@ -51,13 +53,13 @@ int main(int argc, char *argv[])
   c1_cells.push_back(std::make_pair(0, 0));
   c1_cells.push_back(std::make_pair(0, 1));
   c1_cells.push_back(std::make_pair(1, 1));
-  BoxConstraint c1(c1_cells, KenKenSolver::BoxOperator::MULTIPLY, 6);
+  BoxConstraint c1(c1_cells, KENKENSOLVER::BoxOperator::MULTIPLY, 6);
 
   std::vector<std::pair<int, int> > c2_cells;
   c2_cells.push_back(std::make_pair(0, 2));
   c2_cells.push_back(std::make_pair(0, 3));
 
-  BoxConstraint c2(c2_cells, KenKenSolver::BoxOperator::ADD, 7);
+  BoxConstraint c2(c2_cells, KENKENSOLVER::BoxOperator::ADD, 7);
 
   board.addConstraint(c1);
   board.addConstraint(c2);
@@ -70,6 +72,23 @@ int main(int argc, char *argv[])
   auto stop = std::chrono::high_resolution_clock::now();
   auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
   std::cout << "Time used to check validity: " << duration.count()/1e6 << std::endl;
+
+  // Test the solver
+  KenKenSolver solver;
+  start = std::chrono::high_resolution_clock::now();
+  
+  bool solution_exists = solver.solve(board);
+  std::cout << "Solution exists: " << solution_exists << std::endl;
+  KenKenBoard solved_board = solver.getSolution();
+
+  stop = std::chrono::high_resolution_clock::now();
+
+  duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  std::cout << "Time used to solve problem: " << duration.count()/1e6 << std::endl;
+
+  KenKenGameManager solution_manager(solved_board);
+  std::cout << "Solved board: " << std::endl;
+  solution_manager.display();
 
   return 0;
 }

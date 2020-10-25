@@ -2,6 +2,7 @@ list(APPEND KenKenGameLibSources
 "BoxConstraint.cpp"
 "KenKenBoard.cpp"
 "KenKenGameManager.cpp"
+"KenKenSolver.cpp"
 )
 
 add_library(KenKenGameLib ${KenKenGameLibSources})

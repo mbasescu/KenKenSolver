@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-namespace KenKenSolver
+namespace KENKENSOLVER
 {
 
 void
@@ -35,4 +35,4 @@ KenKenGameManager::display()
   }
 }
   
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER

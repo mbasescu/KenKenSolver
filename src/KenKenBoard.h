@@ -1,12 +1,14 @@
-#ifndef KENKENBOARD_H
-#define KENKENBOARD_H
+#ifndef SRC_KENKENBOARD_H
+#define SRC_KENKENBOARD_H
+
+//#include <cstdint>
 
 #include <utility>
 #include <vector>
 
 #include "BoxConstraint.h"
 
-namespace KenKenSolver
+namespace KENKENSOLVER
 {
 
 class KenKenBoard
@@ -73,8 +75,25 @@ class KenKenBoard
   {
     return _cells;
   }
+
+  bool
+  filled() const
+  {
+    for (std::size_t i = 0; i < size(); i++)
+    {
+      for (std::size_t j = 0; j < size(); j++)
+      {
+        if (this->at(i, j) == 0)
+        {
+          return false;
+        }
+      }
+    }
+
+    return true;
+  }
 };
 
-} // namespace KenKenSolver
+} // namespace KENKENSOLVER
 
 #endif
