@@ -1,8 +1,0 @@
-/home/max/_projects/kenken-solver/build/CMakeFiles/edit_cache.dir
-/home/max/_projects/kenken-solver/build/CMakeFiles/rebuild_cache.dir
-/home/max/_projects/kenken-solver/build/src/CMakeFiles/edit_cache.dir
-/home/max/_projects/kenken-solver/build/src/CMakeFiles/rebuild_cache.dir
-/home/max/_projects/kenken-solver/build/src/CMakeFiles/KenKenGameLib.dir
-/home/max/_projects/kenken-solver/build/test/CMakeFiles/edit_cache.dir
-/home/max/_projects/kenken-solver/build/test/CMakeFiles/rebuild_cache.dir
-/home/max/_projects/kenken-solver/build/test/CMakeFiles/KenKenSolverTest.dir

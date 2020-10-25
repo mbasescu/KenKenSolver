@@ -1,2 +1,0 @@
-/usr/bin/ar qc libKenKenGameLib.a  CMakeFiles/KenKenGameLib.dir/BoxConstraint.cpp.o CMakeFiles/KenKenGameLib.dir/KenKenBoard.cpp.o CMakeFiles/KenKenGameLib.dir/KenKenGameManager.cpp.o
-/usr/bin/ranlib libKenKenGameLib.a

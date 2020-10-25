@@ -1,6 +1,8 @@
+#include <chrono>
 #include <iostream>
 #include <utility>
 #include <vector>
+
 #include "BoxConstraint.h"
 #include "KenKenBoard.h"
 #include "KenKenGameManager.h"
@@ -49,10 +51,25 @@ int main(int argc, char *argv[])
   c1_cells.push_back(std::make_pair(0, 0));
   c1_cells.push_back(std::make_pair(0, 1));
   c1_cells.push_back(std::make_pair(1, 1));
-  BoxConstraint c1(c1_cells, KenKenSolver::BoxOperator::ADD, 6);
+  BoxConstraint c1(c1_cells, KenKenSolver::BoxOperator::MULTIPLY, 6);
+
+  std::vector<std::pair<int, int> > c2_cells;
+  c2_cells.push_back(std::make_pair(0, 2));
+  c2_cells.push_back(std::make_pair(0, 3));
+
+  BoxConstraint c2(c2_cells, KenKenSolver::BoxOperator::ADD, 7);
+
   board.addConstraint(c1);
+  board.addConstraint(c2);
 
   game.display();
+  auto start = std::chrono::high_resolution_clock::now();
+
   std::cout << "Board is valid: " << board.valid() << std::endl;
+  
+  auto stop = std::chrono::high_resolution_clock::now();
+  auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
+  std::cout << "Time used to check validity: " << duration.count()/1e6 << std::endl;
+
   return 0;
 }
