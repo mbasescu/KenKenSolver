@@ -1,7 +1,5 @@
 #include "KenKenSolver.h"
 
-#include <iostream>
-#include <utility>
 #include <vector>
 
 namespace KENKENSOLVER
@@ -48,7 +46,7 @@ KenKenSolver::solve(CellEntry entry)
   CellEntry new_entry = maximumInformationCell();
 
   // Try to solve with the maximum information entry until we run out of options
-  for (int num = 1; num <= board.size(); num++)
+  for (std::size_t num = 1; num <= board.size(); num++)
   {
     new_entry.val = num;
     bool solved = solve(new_entry);

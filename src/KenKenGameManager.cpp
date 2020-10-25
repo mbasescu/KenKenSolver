@@ -1,6 +1,7 @@
 #include "KenKenGameManager.h"
 
 #include <iostream>
+#include <utility>
 
 namespace KENKENSOLVER
 {
@@ -8,9 +9,9 @@ namespace KENKENSOLVER
 void
 KenKenGameManager::display()
 {
-  for (int i = 0; i < board.size(); i++)
+  for (std::size_t i = 0; i < board.size(); i++)
   {
-    for (int j = 0; j < board.size(); j++)
+    for (std::size_t j = 0; j < board.size(); j++)
     {
       int val = board.at(i, j);
       if (val == 0)

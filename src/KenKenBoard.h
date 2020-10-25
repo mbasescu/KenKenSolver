@@ -1,8 +1,6 @@
 #ifndef SRC_KENKENBOARD_H
 #define SRC_KENKENBOARD_H
 
-//#include <cstdint>
-
 #include <utility>
 #include <vector>
 
@@ -14,7 +12,7 @@ namespace KENKENSOLVER
 class KenKenBoard
 {
   private:
-  int _size;
+  std::size_t _size;
   std::vector<std::vector<int> > _cells;
   std::vector<BoxConstraint> constraints;
 
@@ -64,7 +62,7 @@ class KenKenBoard
     return const_cast<int &>(const_cast<const KenKenBoard* >(this)->at(i, j));
   }
 
-  int 
+  std::size_t 
   size() const
   {
     return _size;

@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
   // 2 3 4 1
   // 3 4 1 2
   // 4 1 2 3
-
+  /*
   // Row 1
   board.at(0, 0) = 1;
   board.at(0, 1) = 2;
@@ -63,6 +63,50 @@ int main(int argc, char *argv[])
 
   board.addConstraint(c1);
   board.addConstraint(c2);
+  */
+
+  // Add constraints
+  board.at(0, 3) = 1;
+
+  std::vector<std::pair<int, int> > c1_cells;
+  c1_cells.push_back(std::make_pair(0, 0));
+  c1_cells.push_back(std::make_pair(1, 0));
+  BoxConstraint c1(c1_cells, KENKENSOLVER::BoxOperator::ADD, 5);
+
+  std::vector<std::pair<int, int> > c2_cells;
+  c2_cells.push_back(std::make_pair(2, 0));
+  c2_cells.push_back(std::make_pair(3, 0));
+  BoxConstraint c2(c2_cells, KENKENSOLVER::BoxOperator::ADD, 5);
+
+  std::vector<std::pair<int, int> > c3_cells;
+  c3_cells.push_back(std::make_pair(0, 1));
+  c3_cells.push_back(std::make_pair(0, 2));
+  BoxConstraint c3(c3_cells, KENKENSOLVER::BoxOperator::ADD, 7);
+
+  std::vector<std::pair<int, int> > c4_cells;
+  c4_cells.push_back(std::make_pair(1, 1));
+  c4_cells.push_back(std::make_pair(2, 1));
+  c4_cells.push_back(std::make_pair(3, 1));
+  BoxConstraint c4(c4_cells, KENKENSOLVER::BoxOperator::ADD, 6);
+
+  std::vector<std::pair<int, int> > c5_cells;
+  c5_cells.push_back(std::make_pair(1, 2));
+  c5_cells.push_back(std::make_pair(1, 3));
+  c5_cells.push_back(std::make_pair(2, 2));
+  c5_cells.push_back(std::make_pair(2, 3));
+  BoxConstraint c5(c5_cells, KENKENSOLVER::BoxOperator::ADD, 11);
+
+  std::vector<std::pair<int, int> > c6_cells;
+  c6_cells.push_back(std::make_pair(3, 2));
+  c6_cells.push_back(std::make_pair(3, 3));
+  BoxConstraint c6(c6_cells, KENKENSOLVER::BoxOperator::ADD, 5);
+
+  board.addConstraint(c1);
+  board.addConstraint(c2);
+  board.addConstraint(c3);
+  board.addConstraint(c4);
+  board.addConstraint(c5);
+  board.addConstraint(c6);
 
   game.display();
   auto start = std::chrono::high_resolution_clock::now();

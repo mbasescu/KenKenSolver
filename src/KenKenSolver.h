@@ -68,7 +68,7 @@ class KenKenSolver
     }
 
     CellEntry entry = maximumInformationCell();
-    for (int i = 1; i <= board.size(); i++)
+    for (std::size_t i = 1; i <= board.size(); i++)
     {
       entry.val = i;
       bool solved = solve(entry);
