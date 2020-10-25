@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/max/_projects/kenken-solver/src/BoxConstraint.cpp
+BoxConstraint.h
+/home/max/_projects/kenken-solver/src/BoxConstraint.h
+KenKenBoard.h
+/home/max/_projects/kenken-solver/src/KenKenBoard.h
+
+/home/max/_projects/kenken-solver/src/BoxConstraint.h
+utility
+-
+vector
+-
+
+/home/max/_projects/kenken-solver/src/KenKenBoard.cpp
+KenKenBoard.h
+/home/max/_projects/kenken-solver/src/KenKenBoard.h
+
+/home/max/_projects/kenken-solver/src/KenKenBoard.h
+utility
+-
+vector
+-
+BoxConstraint.h
+/home/max/_projects/kenken-solver/src/BoxConstraint.h
+
+/home/max/_projects/kenken-solver/src/KenKenGameManager.cpp
+KenKenGameManager.h
+/home/max/_projects/kenken-solver/src/KenKenGameManager.h
+iostream
+-
+
+/home/max/_projects/kenken-solver/src/KenKenGameManager.h
+KenKenBoard.h
+/home/max/_projects/kenken-solver/src/KenKenBoard.h
+

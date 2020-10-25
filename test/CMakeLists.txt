@@ -1,0 +1,2 @@
+add_executable(KenKenSolverTest KenKenSolverTest.cpp)
+target_link_libraries(KenKenSolverTest KenKenGameLib)
