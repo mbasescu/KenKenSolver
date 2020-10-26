@@ -16,7 +16,7 @@ using KENKENSOLVER::KenKenSolver;
 
 int main(int argc, char *argv[])
 {
-  KenKenBoard board = KENKENSOLVER::KENKENSOLVERTEST::board3();
+  KenKenBoard board = KENKENSOLVER::KENKENSOLVERTEST::board4();
   KenKenGameManager game(board);
 
   game.display();

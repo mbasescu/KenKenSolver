@@ -235,6 +235,143 @@ namespace KENKENSOLVERTEST
     return board;
   }
 
+  KenKenBoard board4()
+  {
+    // Unknown solution board (7x7)
+    KenKenBoard board(7);
+
+    // Add constraints
+    board.at(6, 2) = 1;
+    board.at(2, 1) = 5;
+    board.at(3, 6) = 6;
+
+    std::vector<std::pair<int, int> > cells;
+    
+    cells.push_back(std::make_pair(0, 0));
+    cells.push_back(std::make_pair(0, 1));
+    cells.push_back(std::make_pair(1, 1));
+    cells.push_back(std::make_pair(1, 2));
+    BoxConstraint c(cells, KENKENSOLVER::BoxOperator::ADD, 18);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(0, 2));
+    cells.push_back(std::make_pair(0, 3));
+    cells.push_back(std::make_pair(1, 3));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 15);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(0, 4));
+    cells.push_back(std::make_pair(0, 5));
+    cells.push_back(std::make_pair(0, 6));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::MULTIPLY, 60);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(1, 0));
+    cells.push_back(std::make_pair(2, 0));
+    cells.push_back(std::make_pair(3, 0));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 16);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(1, 4));
+    cells.push_back(std::make_pair(1, 5));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::SUBTRACT, 3);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(1, 6));
+    cells.push_back(std::make_pair(2, 6));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::MULTIPLY, 6);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(2, 2));
+    cells.push_back(std::make_pair(2, 3));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::SUBTRACT, 2);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(2, 4));
+    cells.push_back(std::make_pair(2, 5));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::SUBTRACT, 6);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(3, 1));
+    cells.push_back(std::make_pair(3, 2));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::MULTIPLY, 10);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(3, 3));
+    cells.push_back(std::make_pair(4, 3));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 7);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(3, 4));
+    cells.push_back(std::make_pair(4, 4));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 9);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(3, 5));
+    cells.push_back(std::make_pair(4, 5));
+    cells.push_back(std::make_pair(5, 5));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 15);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(4, 0));
+    cells.push_back(std::make_pair(5, 0));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::DIVIDE, 2);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(4, 1));
+    cells.push_back(std::make_pair(4, 2));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::SUBTRACT, 1);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(4, 6));
+    cells.push_back(std::make_pair(5, 6));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 8);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(5, 1));
+    cells.push_back(std::make_pair(6, 1));
+    cells.push_back(std::make_pair(6, 0));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 13);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(5, 2));
+    cells.push_back(std::make_pair(5, 3));
+    cells.push_back(std::make_pair(5, 4));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::ADD, 11);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(6, 3));
+    cells.push_back(std::make_pair(6, 4));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::DIVIDE, 2);
+    board.addConstraint(c);
+    cells.clear();
+
+    cells.push_back(std::make_pair(6, 5));
+    cells.push_back(std::make_pair(6, 6));
+    c = BoxConstraint(cells, KENKENSOLVER::BoxOperator::SUBTRACT, 2);
+    board.addConstraint(c);
+    cells.clear();
+
+    return board;
+  }
+
   // Get a vector containing all boards
   std::vector<KenKenBoard> initializeTestBoards()
   {
@@ -242,6 +379,7 @@ namespace KENKENSOLVERTEST
     boards.push_back(board1());
     boards.push_back(board2());
     boards.push_back(board3());
+    boards.push_back(board4());
 
     return boards;
   }
